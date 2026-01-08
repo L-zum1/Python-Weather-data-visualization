@@ -11,6 +11,9 @@
    - 24小时湿度趋势折线图
    - 24小时平均风力风向雷达图
    - 24小时温湿度相关性散点图
+   - 7天温度趋势折线图
+   - 7天湿度趋势折线图
+   - 7天平均风力风向雷达图
 
 ## 技术栈
 - **数据获取**：requests, crawl4ai
@@ -24,6 +27,7 @@
 python天气数据可视化/
 ├── get_data.py           # 天气数据获取脚本
 ├── hourly_plt.py         # 24小时数据可视化脚本
+├── weekly_plt.py         # 7天数据可视化脚本
 ├── hourly_weather_data.csv  # 24小时天气数据（自动生成）
 ├── weekly_weather_data.csv  # 7天天气数据（自动生成）
 └── README.md             # 项目说明文档
@@ -41,10 +45,10 @@ pip install pandas matplotlib seaborn requests crawl4ai beautifulsoup4 numpy
 ```bash
 python get_data.py
 ```
-该脚本会从中国天气网获取大连的天气数据，并保存为CSV文件。
+该脚本会从中国天气网获取当地的天气数据，并保存为CSV文件。
 
 ### 3. 生成可视化图表
-运行可视化脚本：
+运行24小时数据可视化脚本：
 ```bash
 python hourly_plt.py
 ```
@@ -53,6 +57,15 @@ python hourly_plt.py
 - 24小时湿度趋势图 (24hourly_hum_trend.png/jpg)
 - 24小时平均风力风向雷达图 (wind_radar.png/jpg)
 - 24小时温湿度相关性图 (24hourly_temp_hum.png/jpg)
+
+运行7天数据可视化脚本：
+```bash
+python weekly_plt.py
+```
+该脚本会读取CSV文件中的数据，生成并保存以下图表：
+- 7天温度趋势图 (7weather_trend.png/jpg)
+- 7天湿度趋势图 (7weekly_hum_trend.png/jpg)
+- 7天平均风力风向雷达图 (7wind_radar.png/jpg)
 
 ## 文件说明
 
@@ -63,6 +76,11 @@ python hourly_plt.py
 
 ### hourly_plt.py
 - 读取CSV文件中的24小时天气数据
+- 绘制各种可视化图表
+- 保存图表为PNG和JPG格式
+
+### weekly_plt.py
+- 读取CSV文件中的7天天气数据
 - 绘制各种可视化图表
 - 保存图表为PNG和JPG格式
 
